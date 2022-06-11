@@ -1,8 +1,21 @@
 # DIALKI
 
 
-This repo provides the training and inference code for the DIALKI model in our EMNLP 2021 paper: [DIALKI: Knowledge Identification in Conversational Systems through Dialogue-Document Contextualization](https://arxiv.org/abs/2109.04673)
+Repository ini dibuat dalam rangka project mandiri kuliah Perolehan Informasi Lanjut. Paper acuan yang dijadikan baseline dalam projek mandiri adalah [DIALKI: Knowledge Identification in Conversational Systems through Dialogue-Document Contextualization](https://arxiv.org/abs/2109.04673)
 
+
+
+## Notebook training
+Untuk menjalankan project mandiri ini, bisa mengikuti langkah yang ada pada notebook DIALKI.ipynb.
+Tahapan yang ada disana antara lain:
+1. Eksperimen dilakukan pada dataset Doc2Dial dimana data dibagi menjadi data training dan data evaluation.
+2. Setelah dilakukan pembagian data, tahapan selanjutnya adalah data preprocessing. 
+3. Kemudian dilanjutkan dengan multi passage encoding. Pada tahap ini dilakukan encoding terhadap sequence gabungan dengan menggunakan pretrained language model (Longformer). 
+4. Langkah selanjutnya adalah melakukan knowledge contextualization, yang memanfaatkan kumpulan global, utterance dan  span representations dari z; ui; sj untuk lebih mengkontekstualisasikan span reprensentation.
+5. Langkah berikutnya adalah training. Pada tahap training dilakukan next turn knowledge identification dan history knowledge identification. Kemudian dilakukan evaluasi pada dengan menggunakan matriks evaluasi Exact Match dan F1 score.
+
+## Dataset, Hasil preprocessing, Hasil generate cls Longformer, dan hasil traning
+Dataset, Hasil preprocessing, Hasil generate cls Longformer, dan hasil traning dapat di download pada link berikut [url](https://drive.google.com/drive/folders/1iuEtWgb16r3JNaB8NKRQ8VUQjW3pHvvi?usp=sharing).
 
 ## Setup
 The code has been tested on CUDA 11.0+.
