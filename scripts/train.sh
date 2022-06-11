@@ -2,6 +2,8 @@
 
 export WORLD_SIZE=1
 
+export CUDA_VISIBLE_DEVICES=1
+
 output_dir=${parent_dir}/exp
 mkdir -p $output_dir
 
@@ -18,7 +20,7 @@ else
     hist_loss_weight=0.5
 fi
 
-python -m torch.distributed.launch --nproc_per_node $WORLD_SIZE train_reader.py \
+python -m torch.distributed.run --nproc_per_node $WORLD_SIZE train_reader.py \
     --pretrained_model_cfg ${parent_dir}/pretrained_models/bert-base-uncased \
     --seed 42 \
     --learning_rate 3e-5 \
@@ -29,7 +31,7 @@ python -m torch.distributed.launch --nproc_per_node $WORLD_SIZE train_reader.py 
     --max_seq_len ${max_seq_len} \
     --batch_size 2 \
     --passages_per_question ${passages_per_question} \
-    --num_train_epochs 20 \
+    --num_train_epochs 3 \
     --dev_batch_size 4 \
     --max_answer_length ${max_answer_length} \
     --passages_per_question_predict 20 \
