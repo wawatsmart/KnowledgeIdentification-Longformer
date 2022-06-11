@@ -8,7 +8,7 @@ Repository ini dibuat dalam rangka project mandiri kuliah Perolehan Informasi La
 ## Notebook training
 Untuk menjalankan project mandiri ini, bisa mengikuti langkah yang ada pada notebook DIALKI.ipynb.
 Tahapan yang ada disana antara lain:
-1. Eksperimen dilakukan pada dataset Doc2Dial dimana data dibagi menjadi data training dan data evaluation.
+1. Eksperimen dilakukan pada dataset Doc2Dial dimana data dibagi menjadi data training dan data evaluation. Download dataset ada dalam url pada poin 'Dataset, Hasil preprocessing, Hasil generate cls Longformer, dan hasil traning sistem usulan dan baseline'
 2. Kemudian setup environment dengan melakukan run `!conda env create -f environment.yml`, setting ipkernel dialki lalu `!activate dialki`
 3. Setelah dilakukan pembagian data, tahapan selanjutnya adalah data preprocessing. Kemudian dilanjutkan dengan multi passage encoding. Pada tahap ini dilakukan encoding terhadap sequence gabungan dengan menggunakan pretrained language model (Longformer). Run '!bash setup.sh' kemudian run '!bash run_longformer.sh dialdoc'.
 5. Langkah selanjutnya adalah melakukan knowledge contextualization, yang memanfaatkan kumpulan global, utterance dan  span representations dari z; ui; sj untuk lebih mengkontekstualisasikan span reprensentation.
