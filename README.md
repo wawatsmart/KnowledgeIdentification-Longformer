@@ -9,30 +9,14 @@ Repository ini dibuat dalam rangka project mandiri kuliah Perolehan Informasi La
 Untuk menjalankan project mandiri ini, bisa mengikuti langkah yang ada pada notebook DIALKI.ipynb.
 Tahapan yang ada disana antara lain:
 1. Eksperimen dilakukan pada dataset Doc2Dial dimana data dibagi menjadi data training dan data evaluation.
-2. Setelah dilakukan pembagian data, tahapan selanjutnya adalah data preprocessing. 
-3. Kemudian dilanjutkan dengan multi passage encoding. Pada tahap ini dilakukan encoding terhadap sequence gabungan dengan menggunakan pretrained language model (Longformer). 
-4. Langkah selanjutnya adalah melakukan knowledge contextualization, yang memanfaatkan kumpulan global, utterance dan  span representations dari z; ui; sj untuk lebih mengkontekstualisasikan span reprensentation.
-5. Langkah berikutnya adalah training. Pada tahap training dilakukan next turn knowledge identification dan history knowledge identification. Kemudian dilakukan evaluasi pada dengan menggunakan matriks evaluasi Exact Match dan F1 score.
+2. Kemudian setup environment dengan melakukan run `!conda env create -f environment.yml`, setting ipkernel dialki lalu `!activate dialki`
+3. Setelah dilakukan pembagian data, tahapan selanjutnya adalah data preprocessing. Kemudian dilanjutkan dengan multi passage encoding. Pada tahap ini dilakukan encoding terhadap sequence gabungan dengan menggunakan pretrained language model (Longformer). Run '!bash setup.sh' kemudian run '!bash run_longformer.sh dialdoc'.
+5. Langkah selanjutnya adalah melakukan knowledge contextualization, yang memanfaatkan kumpulan global, utterance dan  span representations dari z; ui; sj untuk lebih mengkontekstualisasikan span reprensentation.
+6. Langkah berikutnya adalah training. Pada tahap training dilakukan next turn knowledge identification dan history knowledge identification. Kemudian dilakukan evaluasi pada dengan menggunakan matriks evaluasi Exact Match dan F1 score. Run !bash scripts/train_longformer.sh dialdoc. 
+8. Untuk inference dilakukan dengan run `bash run_eval.sh [dataname] [checkpoint_path] [inference_output_path]` untuk melakukan run inference. `dataname` = `dialdoc`. Inference dijalankan pada dev set.
 
-## Dataset, Hasil preprocessing, Hasil generate cls Longformer, dan hasil traning
-Dataset, Hasil preprocessing, Hasil generate cls Longformer, dan hasil traning dapat di download pada link berikut [url](https://drive.google.com/drive/folders/1iuEtWgb16r3JNaB8NKRQ8VUQjW3pHvvi?usp=sharing).
-
-## Setup
-The code has been tested on CUDA 11.0+.
-1. Run `conda env create -f environment.yml` and `conda activate dialki`
-2. To train on doc2dial dataset, first create a folder `./dialdoc` and put original data files from [here](https://github.com/doc2dial/sharedtask-dialdoc2021/tree/master/data/doc2dial/v1.0.1) into a subfolder `./dialdoc/raw_data`.
-3. If you want to train on wow instead, skip step 2. Create a folder `./wow` and change the path variable in `./path` file to `./wow`.
-4. Run `bash setup.sh`.
-
-## Data Preparation and Training
-The default parameters were used to run on 2 NVIDIA Quadro Q6000 GPUs. Each training process took about 18 hours for 20 epochs (default). 
-1. Simply run `bash run.sh dialdoc` or `bash run.sh wow` depending on which dataset you want to run.
-
-## Inference and Evaluation
-After you finish training, run `bash run_eval.sh [dataname] [checkpoint_path] [inference_output_path]` to run inference. `dataname` can be either `dialdoc` or `wow`. The checkpoint_path can be either the best model from your training or [our provided model](https://drive.google.com/drive/folders/1iuEtWgb16r3JNaB8NKRQ8VUQjW3pHvvi?usp=sharing) for each dataset. `inference_output_path` is where you want the inference results to be saved. The console will print out the evaluation results during inference. 
-
-Currently, the inference will run for dev set by default. If you want to change to test sets (note that you need to contact dialdoc authors to get their test set), go to `script/eval.sh` and change the `--dev_file` path.
-
+## Dataset, Hasil preprocessing, Hasil generate cls Longformer, dan hasil traning sistem usulan dan baseline
+Dataset, Hasil preprocessing, Hasil generate cls Longformer, hasil traning sistem usulan, dan hasil training baseline dapat di download pada link berikut [url](https://drive.google.com/drive/folders/1iuEtWgb16r3JNaB8NKRQ8VUQjW3pHvvi?usp=sharing).
 
 ## Cite
 ```
