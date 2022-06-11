@@ -18,7 +18,7 @@ Tahapan yang ada disana antara lain:
 8. Untuk inference dilakukan dengan run `bash run_eval.sh [dataname] [checkpoint_path] [inference_output_path]` untuk melakukan run inference. `dataname` = `dialdoc`. Inference dijalankan pada dev set.
 
 ## Dataset, Hasil preprocessing, Hasil generate cls Longformer, dan hasil traning sistem usulan dan baseline
-Dataset, Hasil preprocessing, Hasil generate cls Longformer, hasil traning sistem usulan, dan hasil training baseline dapat di download pada link berikut [url](https://drive.google.com/drive/folders/1iuEtWgb16r3JNaB8NKRQ8VUQjW3pHvvi?usp=sharing). Dataset ada pada folder `dialdoc/raw_data`. Hasil generate cls Longformer ada pada folder `dialdoc/cache/cls_longformerlongformerlongformer`. Sedangkan generate cls Bert(baseline) ada pada folder `dialdoc/cache/cls_bert`. Hasil training sistem usulan ada pada folder `dialdoc/exp-finallongformer` sedangkan hasil training baseline ada pada folder `dialdoc/exp-bert`
+Dataset, Hasil preprocessing, Hasil generate cls Longformer, hasil traning sistem usulan, dan hasil training baseline dapat di download pada link berikut [url](https://drive.google.com/drive/folders/1vQ72AwDpin3JbDIB04Ub-W1EbILU4bIi?usp=sharing). Dataset ada pada folder `dialdoc/raw_data`. Hasil generate cls Longformer ada pada folder `dialdoc/cache/cls_longformerlongformerlongformer`. Sedangkan generate cls Bert(baseline) ada pada folder `dialdoc/cache/cls_bert`. Hasil training sistem usulan ada pada folder `dialdoc/exp-finallongformer` sedangkan hasil training baseline ada pada folder `dialdoc/exp-bert`
 
 ## Cite
 ```
