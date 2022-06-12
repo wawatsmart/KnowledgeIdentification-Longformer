@@ -8,8 +8,8 @@ Repository ini dibuat dalam rangka project mandiri kuliah Perolehan Informasi La
 ## Notebook training
 Untuk menjalankan project mandiri ini, bisa mengikuti langkah yang ada pada notebook DIALKI.ipynb.
 Tahapan yang ada disana antara lain:
-1. Eksperimen dilakukan pada dataset Doc2Dial dimana data dibagi menjadi data training dan data evaluation. Download dataset ada dalam url pada poin 'Dataset, Hasil preprocessing, Hasil generate cls Longformer, dan hasil traning sistem usulan dan baseline' pada folder 'dialdoc/raw_data'
-2. Kemudian setup environment dengan melakukan run `!conda env create -f environment.yml`, setting ipkernel dialki lalu `!activate dialki`
+1. Eksperimen dilakukan pada dataset Doc2Dial dimana data dibagi menjadi data training dan data evaluation. Download dataset ada dalam url pada poin `Dataset, Hasil preprocessing, Hasil generate cls Longformer, dan hasil traning sistem usulan dan baseline` pada folder `dialdoc/raw_data`
+2. Kemudian setup environment dengan melakukan run `!conda env create -f environment.yml`, setting ipykernel dialki lalu `!activate dialki`
 3. Kemudian install library cudatoolkit yang sesuai nvcc. Pada ekperimen yg dipakai menggunakan nvcc build cuda 11.4, sehingga diinstal cuda toolkit 11.3 yang cocok dengan nvcc.
 4. Kemudian install library apex dengan `!git clone https://github.com/NVIDIA/apex` kemudian ganti file setup.py pada folder `apex/` dengan [url](https://drive.google.com/file/d/1KtMJgfZbJim4Ptqxeoqw2kC7LRjzTmXp/view?usp=sharing).  Lalu install library apex `!pip install -v --disable-pip-version-check --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" ./`
 5. Setelah dilakukan pembagian data, tahapan selanjutnya adalah data preprocessing. Kemudian dilanjutkan dengan multi passage encoding. Pada tahap ini dilakukan encoding terhadap sequence gabungan dengan menggunakan pretrained language model (Longformer). Run `!bash setup.sh` kemudian run `!bash run_longformer.sh dialdoc`.
